@@ -1,0 +1,53 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-cli:
+    runs-on: ubuntu-latest
+    name: Test CLI Version
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install CLI dependencies
+        run: |
+          cd v1.0_cli
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run CLI tests
+        run: |
+          cd v1.0_cli
+          pytest test_cli.py
+
+  test-gui:
+    runs-on: ubuntu-latest
+    name: Test GUI Version
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install GUI dependencies
+        run: |
+          cd v1.1_gui
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run GUI tests
+        run: |
+          cd v1.1_gui
+          pytest test_gui.py
