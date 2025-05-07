@@ -52,7 +52,8 @@ python gui.py
 
 ## 🖼️ Screenshots
 
-_Add GUI screenshots here if available._
+<p align="center">
+    <img src="https://github.com/mattyhakin/insulin-calculator-simple/blob/main/SimpleInsulinCalc%20GUI%20Layout.png?raw=true" alt="Simple Insulin Calculator Screenshot"/>
 
 ## 📝 License
 
