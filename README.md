@@ -1,6 +1,6 @@
 <p align="center">
     <img src="https://github.com/mattyhakin/insulin-calculator-simple/blob/main/simple-insulin-header.png?raw=true" alt="Simple Insulin Calculator"/>
-
+    
 # SimpleInsulinCalc
 
 > A lightweight insulin dose calculator with CLI and GUI support for people with Type 1 diabetes.
@@ -47,7 +47,7 @@ python main.py
 ```bash
 cd v1.1_gui
 pip install -r requirements.txt
-python SimpleInsulinCalc_GUI_Refactored.py
+python SimpleInsulinCalc_GUI_Refactored_Accessible.py
 ```
 
 ---
@@ -60,6 +60,7 @@ Download the `.exe` from the [Releases page](https://github.com/mattyhakin/simpl
 
 ## 📄 Documentation
 
+- [User Guide](docs/user_guide.md)
 - [CHANGELOG.md](CHANGELOG.md)
 - [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - [docs/](docs/) (for GitHub Pages)
@@ -88,6 +89,7 @@ simpleinsulincalc/
 ├── v1.1_gui/             # GUI version
 ├── installer/            # PyInstaller scripts & icon
 ├── .github/workflows/    # GitHub Actions
+├── docs/                 # User guide and optional docs site
 ├── README.md
 ├── CHANGELOG.md
 └── RELEASE_NOTES.md
