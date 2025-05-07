@@ -64,6 +64,7 @@ Download the `.exe` from the [Releases page](https://github.com/mattyhakin/simpl
 - [CHANGELOG.md](CHANGELOG.md)
 - [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - [docs/](docs/) (for GitHub Pages)
+- 📘 [Online User Guide](https://mattyhakin.github.io/insulin-calculator-simple/)
 
 ---
 
