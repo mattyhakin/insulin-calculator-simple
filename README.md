@@ -1,15 +1,12 @@
-<p align="center">
-    <img src="https://github.com/mattyhakin/insulin-calculator-simple/blob/main/simple-insulin-header.png?raw=true" alt="Simple Insulin Calculator"/>
-    
 # SimpleInsulinCalc
 
 > A lightweight insulin dose calculator with CLI and GUI support for people with Type 1 diabetes.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
-[![Latest Release](https://img.shields.io/github/v/release/mattyhakin/simpleinsulincalc?label=release)](https://github.com/mattyhakin/simpleinsulincalc/releases)
-[![CI Tests](https://github.com/mattyhakin/simpleinsulincalc/actions/workflows/python-ci.yml/badge.svg)](https://github.com/mattyhakin/simpleinsulincalc/actions)
-[![Build Installer](https://github.com/mattyhakin/simpleinsulincalc/actions/workflows/pyinstaller.yml/badge.svg)](https://github.com/mattyhakin/simpleinsulincalc/actions)
+[![Latest Release](https://img.shields.io/github/v/release/mattyhakin/insulin-calculator-simple?label=release)](https://github.com/mattyhakin/insulin-calculator-simple/releases)
+[![CI Tests](https://github.com/mattyhakin/insulin-calculator-simple/actions/workflows/python-ci.yml/badge.svg)](https://github.com/mattyhakin/insulin-calculator-simple/actions/workflows/python-ci.yml)
+[![Build Installer](https://github.com/mattyhakin/insulin-calculator-simple/actions/workflows/pyinstaller.yml/badge.svg)](https://github.com/mattyhakin/insulin-calculator-simple/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
@@ -54,17 +51,16 @@ python SimpleInsulinCalc_GUI_Refactored_Accessible.py
 
 ## 💾 Executable Download
 
-Download the `.exe` from the [Releases page](https://github.com/mattyhakin/simpleinsulincalc/releases) for Windows — no Python required.
+Download the `.exe` from the [Releases page](https://github.com/mattyhakin/insulin-calculator-simple/releases) for Windows — no Python required.
 
 ---
 
 ## 📄 Documentation
 
-- [User Guide](docs/user_guide.md)
+- [User Guide](docs/index.md)
 - [CHANGELOG.md](CHANGELOG.md)
 - [RELEASE_NOTES.md](RELEASE_NOTES.md)
 - [docs/](docs/) (for GitHub Pages)
-- 📘 [Online User Guide](https://mattyhakin.github.io/insulin-calculator-simple/)
 
 ---
 
@@ -85,7 +81,7 @@ pytest test_gui.py
 ## 📁 Project Structure
 
 ```
-simpleinsulincalc/
+insulin-calculator-simple/
 ├── v1.0_cli/             # CLI version
 ├── v1.1_gui/             # GUI version
 ├── installer/            # PyInstaller scripts & icon
@@ -98,12 +94,6 @@ simpleinsulincalc/
 
 ---
 
-## 📝 Notes
-
-This project is a combination of two previous projects I created the simpleinsulincalc (v1.0) and simpleinsulincalcGUI (v1.1). I have since removed them from my GitHub project after the creation of this Repo.
-
----
-
 ## 👨‍⚕️ Disclaimer
 
 This app does **not** replace medical advice. Always consult your doctor before making insulin adjustments.
@@ -113,3 +103,9 @@ This app does **not** replace medical advice. Always consult your doctor before 
 ## 📝 License
 
 MIT License. See [LICENSE](LICENSE) for full terms.
+
+---
+
+## 📝 Notes
+
+This project is a combination of two previous projects I created: `simpleinsulincalc` (v1.0) and `simpleinsulincalcGUI` (v1.1). I have since removed them from my GitHub account after the creation of this unified repository.
