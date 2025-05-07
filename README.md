@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="https://github.com/mattyhakin/insulin-calculator-simple/blob/main/simple-insulin-header.png?raw=true" alt="Simple Insulin Calculator"/>
+
 # SimpleInsulinCalc
 
 A simple insulin calculator for Type 1 diabetes management, supporting both CLI and GUI usage.
@@ -54,6 +57,10 @@ _Add GUI screenshots here if available._
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📝 Notes
+
+This project is a combination of two previous projects I created the simpleinsulincalc (v1.0) and simpleinsulincalcGUI (v1.1). I have since removed them from my GitHub project after the creation of this Repo.
 
 ## 👨‍⚕️ Disclaimer
 
