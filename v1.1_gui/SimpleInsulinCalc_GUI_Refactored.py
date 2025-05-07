@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 
 # Ratios for different meal types
 RATIOS = {
@@ -9,12 +10,11 @@ RATIOS = {
 }
 CORRECTIONAL_RATIO = 1.0
 
-# Function to process the input and calculate the dose
 def calculate():
     try:
         dose_type = input_display.get().lower()
         if dose_type not in RATIOS:
-            result_display.set("Please select a valid dose type.")
+            result_display.set("Select a valid dose type.")
             return
 
         carbs_str = carbs_display.get()
@@ -44,7 +44,6 @@ def calculate():
     except Exception as e:
         result_display.set(f"Error: {e}")
 
-# Function to clear all inputs and results
 def clear_inputs():
     input_display.set("breakfast")
     carbs_display.set("")
@@ -52,11 +51,21 @@ def clear_inputs():
     correction_display.set("")
     result_display.set("")
 
-# Create the main window
+# Main window
 root = tk.Tk()
 root.title("Insulin Dose Calculator")
+icon_path = os.path.join(os.path.dirname(__file__), "..", "installer", "icon.ico")
+if os.path.exists(icon_path):
+    try:
+        root.iconbitmap(icon_path)
+    except:
+        pass
 
-# Display variables
+# Fonts and padding
+font = ("Arial", 12)
+pad_opts = {'padx': 6, 'pady': 6, 'sticky': 'w'}
+
+# Variables
 input_display = tk.StringVar(value="breakfast")
 carbs_display = tk.StringVar()
 correctional_question = tk.StringVar(value="no")
@@ -64,27 +73,30 @@ correction_display = tk.StringVar()
 result_display = tk.StringVar()
 
 # Layout
-tk.Label(root, text="Type of Dose:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
-tk.OptionMenu(root, input_display, *RATIOS.keys()).grid(row=0, column=1, padx=5, pady=5)
+tk.Label(root, text="Type of Dose:", font=font).grid(row=0, column=0, **pad_opts)
+dose_menu = tk.OptionMenu(root, input_display, *RATIOS.keys())
+dose_menu.grid(row=0, column=1, **pad_opts)
+dose_menu.config(font=font)
 
-tk.Label(root, text="Carbs (g):").grid(row=1, column=0, padx=5, pady=5, sticky="e")
-tk.Entry(root, textvariable=carbs_display).grid(row=1, column=1, padx=5, pady=5)
+tk.Label(root, text="Carbs (g):", font=font).grid(row=1, column=0, **pad_opts)
+carbs_entry = tk.Entry(root, textvariable=carbs_display, font=font)
+carbs_entry.grid(row=1, column=1, **pad_opts)
+carbs_entry.focus_set()
 
-tk.Label(root, text="Need Correction?").grid(row=2, column=0, padx=5, pady=5, sticky="e")
+tk.Label(root, text="Need Correction?", font=font).grid(row=2, column=0, **pad_opts)
 frame = tk.Frame(root)
-frame.grid(row=2, column=1, padx=5, pady=5)
-tk.Radiobutton(frame, text="Yes", variable=correctional_question, value="yes").pack(side="left")
-tk.Radiobutton(frame, text="No", variable=correctional_question, value="no").pack(side="left")
+frame.grid(row=2, column=1, **pad_opts)
+tk.Radiobutton(frame, text="Yes", variable=correctional_question, value="yes", font=font).pack(side="left")
+tk.Radiobutton(frame, text="No", variable=correctional_question, value="no", font=font).pack(side="left")
 
-tk.Label(root, text="Correction Units:").grid(row=3, column=0, padx=5, pady=5, sticky="e")
-tk.Entry(root, textvariable=correction_display).grid(row=3, column=1, padx=5, pady=5)
+tk.Label(root, text="Correction Units:", font=font).grid(row=3, column=0, **pad_opts)
+tk.Entry(root, textvariable=correction_display, font=font).grid(row=3, column=1, **pad_opts)
 
-tk.Label(root, text="Result:").grid(row=4, column=0, padx=5, pady=5, sticky="e")
-tk.Entry(root, textvariable=result_display, state="readonly").grid(row=4, column=1, padx=5, pady=5)
+tk.Label(root, text="Result:", font=font).grid(row=4, column=0, **pad_opts)
+tk.Entry(root, textvariable=result_display, font=font, state="readonly").grid(row=4, column=1, **pad_opts)
 
-tk.Button(root, text="Calculate", command=calculate).grid(row=5, column=0, pady=10)
-tk.Button(root, text="Clear", command=clear_inputs).grid(row=5, column=1, pady=10)
+tk.Button(root, text="Calculate", command=calculate, font=font).grid(row=5, column=0, **pad_opts)
+tk.Button(root, text="Clear", command=clear_inputs, font=font).grid(row=5, column=1, **pad_opts)
 
-# Run the application
 if __name__ == "__main__":
     root.mainloop()
