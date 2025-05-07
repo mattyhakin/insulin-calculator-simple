@@ -1,46 +1,40 @@
-# CLI version of SimpleInsulinCalc
+# CLI version of SimpleInsulinCalc with improvements
 
-#Creating a calculator in python to work out the amount of insulin to dose with
-#currently my ratio's differ during different times of the day so want to make a 
-#programme to do the maths for me
+ratios = {
+    "breakfast": 2,
+    "lunch": 1.5,
+    "dinner": 1.5,
+    "snack": 1.5
+}
+correctional = 1.0
 
+# Get dose type
+dose_type = input("What type of dose is it? (breakfast/lunch/dinner/snack): ").lower()
+if dose_type not in ratios:
+    print("Invalid dose type. Please try again.")
+    exit()
 
-breakfast = 2
-lunch = 1.5
-dinner = 1.5
-snack = 1.5
-correctional = 1
+# Get carbs
+try:
+    carbs = float(input("How many carbs are you eating? "))
+except ValueError:
+    print("Invalid number for carbs.")
+    exit()
 
+# Calculate base dose
+ratio = ratios[dose_type]
+dose = ratio * carbs / 10
 
-
-dose_type = input("What Type of Dose is it: ")
-
-if dose_type == "Breakfast" or dose_type =="breakfast":
-    ratio = breakfast
-
-elif dose_type == "Lunch" or dose_type == "lunch":
-    ratio = lunch
-
-elif dose_type == "Dinner" or dose_type == "dinner":
-    ratio = dinner
-
-elif dose_type == "Snack" or dose_type == "snack":
-    ratio = snack
-
+# Check for correctional dose
+correctq = input("Do you need a correctional dose? (yes/no): ").strip().lower()
+if correctq == "yes":
+    try:
+        correct_units = float(input("How many correction units? "))
+    except ValueError:
+        print("Invalid number for correction units.")
+        exit()
+    total_dose = dose + (correct_units * correctional)
 else:
-    print("Try again")
+    total_dose = dose
 
-carbs = input("How Many Carbs are you eating: ")
-
-dose = float(ratio) * float(carbs) / 10
-
-correctq = input("Do you need a correctional dose? ")
-
-if correctq == "yes" or correctq == "Yes":
-    correctyes = input("How many units? ")
-    correct = float(correctyes) * float(correctional)
-    totaldose = float(dose) + float(correct)
-    print("You Need " + str(totaldose) + " Units of Insulin")
-
-else:
-    print("You Need " + str(dose) + " Units of Insulin")
+print(f"You need {total_dose:.1f} units of insulin.")
