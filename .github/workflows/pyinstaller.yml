@@ -1,4 +1,4 @@
-name: Build Executable
+name: Build Executable and Release
 
 on:
   push:
@@ -25,8 +25,22 @@ jobs:
         run: |
           pyinstaller --onefile --windowed --icon=installer/icon.ico v1.1_gui/SimpleInsulinCalc_GUI_Refactored.py
 
-      - name: Upload Artifact
+      - name: Upload Artifact to Actions
         uses: actions/upload-artifact@v3
         with:
           name: InsulinCalcInstaller
           path: dist/SimpleInsulinCalc_GUI_Refactored.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload .exe to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/SimpleInsulinCalc_GUI_Refactored.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
