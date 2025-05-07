@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="https://github.com/mattyhakin/insulin-calculator-simple/blob/main/simple-insulin-header.png?raw=true" alt="Simple Insulin Calculator"/>
+
 # SimpleInsulinCalc
 
 > A lightweight insulin dose calculator with CLI and GUI support for people with Type 1 diabetes.
